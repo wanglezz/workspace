@@ -1,10 +1,12 @@
 ---
+title: 本地库上传Github
 date: 2024-06-05
 tags:
   - Git
   - 技术
 dir: tech
 share: "true"
+author: tomato
 ---
 
 ## 创建远程库
