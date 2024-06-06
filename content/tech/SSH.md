@@ -7,6 +7,7 @@ dir: tech
 share: "true"
 date: 2024-06-05
 author: tomato
+slug: ssh
 ---
 
 ## ssh是什么
