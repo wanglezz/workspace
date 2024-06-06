@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on Tomato&#39;s Blog</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Tomato&#39;s Blog</description>
+    <generator>Hugo -- 0.126.3</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本地库上传Github</title>
+      <link>http://localhost:1313/tech/local-to-remote/</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/local-to-remote/</guid>
+      <description>创建远程库 在github.com创建远程库
+创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &amp;#34;example@example.com&amp;#34; git config --global user.name &amp;#34;yourname&amp;#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &amp;#34;note&amp;#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下MarkDown语法
+在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &amp;#34;your_email@example.com&amp;#34; 添加私钥到ssh代理 eval &amp;#34;$(ssh-agent -s)&amp;#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
+上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
+git push origin main </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>技术 on Tomato&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on Tomato&#39;s Blog</description>
+    <generator>Hugo -- 0.126.3</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH</title>
+      <link>http://localhost:1313/tech/ssh/</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/ssh/</guid>
+      <description>ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。
+ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。
+私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥
+密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 </description>
+    </item>
+    <item>
+      <title>本地库上传Github</title>
+      <link>http://localhost:1313/tech/local-to-remote/</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/local-to-remote/</guid>
+      <description>创建远程库 在github.com创建远程库
+创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &amp;#34;example@example.com&amp;#34; git config --global user.name &amp;#34;yourname&amp;#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &amp;#34;note&amp;#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下MarkDown语法
+在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &amp;#34;your_email@example.com&amp;#34; 添加私钥到ssh代理 eval &amp;#34;$(ssh-agent -s)&amp;#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
+上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
+git push origin main </description>
+    </item>
+  </channel>
+</rss>

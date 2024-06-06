@@ -4,6 +4,7 @@ tags:
   - obsidian
 dir: tech
 share: "true"
+draft: "true"
 ---
 
 # 基础

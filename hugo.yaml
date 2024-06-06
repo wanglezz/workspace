@@ -1,78 +1,86 @@
 baseURL: "https://workspace-hazel.vercel.app/"
-title: ExampleSite
+title: Tomato's Blog
+languageCode: zh-cn
 paginate: 5
 theme: PaperMod
 
+enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["posts", "papermod"]
 
 minify:
   disableXML: true
-  minifyOutput: true
+  # minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: Theme PaperMod
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
 
-  ShowReadingTime: true
+  defaultTheme: auto
+  # disableThemeToggle: true
   ShowShareButtons: true
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  VisitCount: true
+  ShowLastMod: true #显示文章更新时间
+  # comments: false
+  # images: ["images/papermod-cover.png"]
 
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "<images/favicon.ico>"
+    favicon16x16: "<images/favicon-16x16.png>"
+    favicon32x32: "<images/favicon-32x32.png>"
+    apple_touch_icon: "<images/apple_touch_icon.png>"
+    safari_pinned_tab: "<images/apple_touch_icon.png>"
 
   label:
     text: "Home"
-    icon: /apple-touch-icon.png
+    icon: /images/apple-touch-icon.png
     iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
+    enabled: true # needs to be explicitly set
+    title: Tomato's Blog
+    subtitle: "你好"
+    imageUrl: images/tomato.jpg
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: potato
     buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
+      - name: 技术
+        url: tech
+      - name: 生活
+        url: 404
 
   # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+  # homeInfoParams:
+  #   Title: "Hi there \U0001F44B"
+  #   Content: Welcome to my blog
 
   socialIcons:
     - name: x
@@ -81,28 +89,46 @@ params:
       url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/"
+    - name: email
+      url: "mailto:fangchengjie@outlook.com"
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
+  # analytics:
+  #   google:
+  #     SiteVerificationTag: "XYZabc"
+  #   bing:
+  #     SiteVerificationTag: "XYZabc"
+  #   yandex:
+  #     SiteVerificationTag: "XYZabc"
 
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+  # cover:
+  #   hidden: true # hide everywhere but not in structured data
+  #   hiddenInList: true # hide on list pages and home
+  #   hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  # editPost:
+  #   URL: "https://github.com/<path_to_repo>/content"
+  #   Text: "Suggest Changes" # edit text
+  #   appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
-  fuseOpts:
+
+menu:
+  main:
+    - identifier: archives
+      name: Archives
+      url: archives
+      weight: 10
+    - identifier: serach
+      name: Serach
+      url: serach
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: tags/
+      weight: 20
+
+fuseOpts:
     isCaseSensitive: false
     shouldSort: true
     location: 0
@@ -111,20 +137,7 @@ params:
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
-menu:
-  main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
