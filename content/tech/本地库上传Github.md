@@ -7,6 +7,7 @@ tags:
 dir: tech
 share: "true"
 author: tomato
+slug: local to remote
 ---
 
 ## 创建远程库

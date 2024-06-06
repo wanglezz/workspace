@@ -6,6 +6,7 @@ tags:
 dir: tech
 share: "true"
 author: tomato
+slug: obsidian plugins
 ---
 
 ## Annotator
