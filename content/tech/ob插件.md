@@ -1,9 +1,11 @@
 ---
+title: Obsidian插件
 date: 2024-06-03
 tags:
   - obsidian
 dir: tech
 share: "true"
+author: tomato
 ---
 
 ## Annotator

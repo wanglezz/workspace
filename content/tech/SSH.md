@@ -1,10 +1,12 @@
 ---
-date: 2024-06-05
+title: SSH
 tags:
   - ssh
   - 技术
 dir: tech
 share: "true"
+date: 2024-06-05
+author: tomato
 ---
 
 ## ssh是什么
