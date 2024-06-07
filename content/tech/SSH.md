@@ -3,7 +3,6 @@ title: SSH
 tags:
   - ssh
   - 技术
-  - Git
 dir: tech
 share: "true"
 date: 2024-06-05
