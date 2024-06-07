@@ -37,7 +37,7 @@ git commit -m "note"
 ~~~
 
 ## ssh配置
-初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见{{< relref "SSH".md >}}，配置ssh的过程如下
+初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见[SSH](SSH.md)，配置ssh的过程如下
 1. 在本地生成ssh密钥对
 ~~~bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
