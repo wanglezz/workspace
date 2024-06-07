@@ -17,6 +17,10 @@ minify:
   disableXML: true
   # minifyOutput: true
 
+permalinks: #浏览器链接显示方式
+  post: "/:slug/"
+
+
 outputs:
   home:
     - HTML
@@ -51,11 +55,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<images/favicon.ico>"
-    favicon16x16: "<images/favicon-16x16.png>"
-    favicon32x32: "<images/favicon-32x32.png>"
-    apple_touch_icon: "<images/apple_touch_icon.png>"
-    safari_pinned_tab: "<images/apple_touch_icon.png>"
+    favicon: "images/favicon.ico"
+    favicon16x16: "images/favicon-16x16.png"
+    favicon32x32: "images/favicon-32x32.png"
+    apple_touch_icon: "images/apple-touch-icon.png"
+    safari_pinned_tab: "images/apple-touch-icon.png"
 
   label:
     text: "Home"
@@ -100,10 +104,10 @@ params:
   #   yandex:
   #     SiteVerificationTag: "XYZabc"
 
-  # cover:
-  #   hidden: true # hide everywhere but not in structured data
-  #   hiddenInList: true # hide on list pages and home
-  #   hiddenInSingle: true # hide on single page
+  cover:
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
 
   # editPost:
   #   URL: "https://github.com/<path_to_repo>/content"
@@ -115,16 +119,20 @@ params:
 
 menu:
   main:
-    - identifier: archives
-      name: Archives
+    - identifier: Archives
+      name: 📁Archives
       url: archives
+      weight: 9
+    - identifier: Home
+      name: 🏠主页
+      url: /
       weight: 10
-    - identifier: serach
-      name: Serach
+    - identifier: Serach
+      name: 🔍搜索
       url: serach
       weight: 10
     - identifier: tags
-      name: tags
+      name: 🏷️分类
       url: tags/
       weight: 20
 

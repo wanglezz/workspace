@@ -10,12 +10,12 @@
 <meta name="description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="http://localhost:1313/tags/git/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.4599eadb9eb2ad3d0a8d6827b41a8fda8f2f4af226b63466c09c5fddbc8706b7.css" integrity="sha256-RZnq256yrT0KjWgntBqP2o8vSvImtjRmwJxf3byHBrc=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/%3Cimages/favicon.ico%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Cimages/favicon-16x16.png%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Cimages/favicon-32x32.png%3E">
-<link rel="apple-touch-icon" href="http://localhost:1313/%3Cimages/apple_touch_icon.png%3E">
-<link rel="mask-icon" href="http://localhost:1313/%3Cimages/apple_touch_icon.png%3E">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c09d3130c4ce1e0950d3f3b451517b44609e2caeba2890ba10e3e52d5f281d0a.css" integrity="sha256-wJ0xMMTOHglQ0/O0UVF7RGCeLK66KJC6EOPlLV8oHQo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/git/index.xml">
@@ -56,7 +56,8 @@
         }
 
     </style>
-</noscript>
+</noscript><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.css" media="print" onload="this.media='all'">  
+
   
 
 <meta property="og:title" content="Git" />
@@ -113,18 +114,23 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives" title="Archives">
-                    <span>Archives</span>
+                <a href="http://localhost:1313/archives" title="📁Archives">
+                    <span>📁Archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/serach" title="Serach (Alt &#43; /)" accesskey=/>
-                    <span>Serach</span>
+                <a href="http://localhost:1313/" title="🏠主页">
+                    <span>🏠主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="tags">
-                    <span>tags</span>
+                <a href="http://localhost:1313/serach" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="🏷️分类">
+                    <span>🏷️分类</span>
                 </a>
             </li>
         </ul>
@@ -152,7 +158,7 @@
   </header>
   <div class="entry-content">
     <p>创建远程库 在github.com创建远程库
-创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &#34;note&#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下MarkDown语法
+创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &#34;note&#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见/tech/ssh/，配置ssh的过程如下
 在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34; 添加私钥到ssh代理 eval &#34;$(ssh-agent -s)&#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
 上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
 git push origin main </p>
