@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>本地库上传Github | Tomato&#39;s Blog</title>
 <meta name="keywords" content="Git, 技术">
-<meta name="description" content="创建远程库 在github.com创建远程库
-创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &#34;note&#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下
-在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34; 添加私钥到ssh代理 eval &#34;$(ssh-agent -s)&#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
-上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
-git push origin main ">
+<meta name="description" content="创建远程库 在github.com创建远程库 创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添">
 <meta name="author" content="tomato">
 <link rel="canonical" href="http://localhost:1313/tech/local-to-remote/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.c09d3130c4ce1e0950d3f3b451517b44609e2caeba2890ba10e3e52d5f281d0a.css" integrity="sha256-wJ0xMMTOHglQ0/O0UVF7RGCeLK66KJC6EOPlLV8oHQo=" rel="preload stylesheet" as="style">
@@ -22,7 +18,7 @@ git push origin main ">
 <link rel="mask-icon" href="http://localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tech/local-to-remote/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/tech/local-to-remote/">
 <noscript>
     <style>
         #theme-toggle,
@@ -64,11 +60,7 @@ git push origin main ">
   
 
 <meta property="og:title" content="本地库上传Github" />
-<meta property="og:description" content="创建远程库 在github.com创建远程库
-创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &#34;note&#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下
-在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34; 添加私钥到ssh代理 eval &#34;$(ssh-agent -s)&#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
-上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
-git push origin main " />
+<meta property="og:description" content="创建远程库 在github.com创建远程库 创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/tech/local-to-remote/" /><meta property="article:section" content="tech" />
 <meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
@@ -76,11 +68,7 @@ git push origin main " />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="本地库上传Github"/>
-<meta name="twitter:description" content="创建远程库 在github.com创建远程库
-创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m &#34;note&#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下
-在本地生成ssh密钥对 ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34; 添加私钥到ssh代理 eval &#34;$(ssh-agent -s)&#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入
-上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉
-git push origin main "/>
+<meta name="twitter:description" content="创建远程库 在github.com创建远程库 创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email &#34;example@example.com&#34; git config --global user.name &#34;yourname&#34; 添"/>
 
 
 <script type="application/ld+json">
@@ -91,7 +79,7 @@ git push origin main "/>
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Teches",
+      "name": "💻技术",
       "item": "http://localhost:1313/tech/"
     }, 
     {
@@ -109,13 +97,13 @@ git push origin main "/>
   "@type": "BlogPosting",
   "headline": "本地库上传Github",
   "name": "本地库上传Github",
-  "description": "创建远程库 在github.com创建远程库\n创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email \u0026#34;example@example.com\u0026#34; git config --global user.name \u0026#34;yourname\u0026#34; 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m \u0026#34;note\u0026#34; ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下\n在本地生成ssh密钥对 ssh-keygen -t ed25519 -C \u0026#34;your_email@example.com\u0026#34; 添加私钥到ssh代理 eval \u0026#34;$(ssh-agent -s)\u0026#34;//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入\n上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉\ngit push origin main ",
+  "description": "创建远程库 在github.com创建远程库 创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email \u0026#34;example@example.com\u0026#34; git config --global user.name \u0026#34;yourname\u0026#34; 添",
   "keywords": [
     "Git", "技术"
   ],
   "articleBody": "创建远程库 在github.com创建远程库\n创建本地库 先初始化本地库 git init 提交当前内容到工作区 git add . 注册自己的邮箱和用户名 git config --global user.email \"example@example.com\" git config --global user.name \"yourname\" 添加远程库 git remote add origin git@github.com:yourname/project.git 提交到本地仓库 git commit -m \"note\" ssh配置 初次提交到远程库会报错，这是因为没有配置ssh密钥并添加到ssh代理。github的ssh连接采用的是非对称加密，关于非对称加密可见SSH，配置ssh的过程如下\n在本地生成ssh密钥对 ssh-keygen -t ed25519 -C \"your_email@example.com\" 添加私钥到ssh代理 eval \"$(ssh-agent -s)\"//启动ssh代理 ssh-add ~/.ssh/id_ed25519 将公钥添加到github账户 cat ~/.ssh/id_ed25519.pub 在github上创建一个新的SSH key，并将生成的内容填入\n上传远程库 完成上述步骤后应该可以成功上传远程仓库了。🎉\ngit push origin main ",
-  "wordCount" : "57",
-  "inLanguage": "en",
+  "wordCount" : "299",
+  "inLanguage": "zh",
   "datePublished": "2024-06-05T00:00:00Z",
   "dateModified": "2024-06-05T00:00:00Z",
   "author":{
@@ -181,13 +169,13 @@ git push origin main "/>
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives" title="📁Archives">
-                    <span>📁Archives</span>
+                <a href="http://localhost:1313/" title="🏠主页">
+                    <span>🏠主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/" title="🏠主页">
-                    <span>🏠主页</span>
+                <a href="http://localhost:1313/archives" title="📁Archives">
+                    <span>📁Archives</span>
                 </a>
             </li>
             <li>
@@ -207,17 +195,17 @@ git push origin main "/>
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tech/">Teches</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tech/">💻技术</a></div>
     <h1 class="post-title entry-hint-parent">
       本地库上传Github
     </h1>
-    <div class="post-meta"><span title='2024-06-05 00:00:00 +0000 UTC'>June 5, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;57 words&nbsp;·&nbsp;tomato
+    <div class="post-meta"><span title='2024-06-05 00:00:00 +0000 UTC'>2024-06-05</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;299 字&nbsp;·&nbsp;tomato
 
 </div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -435,12 +423,12 @@ git push origin main "/>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '复制';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '已复制！';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '复制';
             }, 2000);
         }
 

@@ -13,6 +13,8 @@ enableEmoji: true
 pygmentsUseClasses: true
 mainsections: ["posts", "papermod"]
 
+hasCJKLanguage: true 
+
 minify:
   disableXML: true
   # minifyOutput: true
@@ -20,6 +22,47 @@ minify:
 permalinks: #浏览器链接显示方式
   post: "/:slug/"
 
+
+defaultContentLanguage: zh # 最顶部首先展示的语言页面
+# defaultContentLanguageInSubdir: true
+
+languages:
+  zh:
+    languageName: "Chinese"
+    weight: 1
+    profileMode:
+      enabled: true # needs to be explicitly set
+      title: Tomato's Blog
+      subtitle: "欢迎光临"
+      imageUrl: images/tomato.jpg
+      imageWidth: 120
+      imageHeight: 120
+      imageTitle: potato
+      buttons:
+        - name: 技术
+          url: tech
+        - name: 运动
+          url: running
+    
+    menu:
+      main:
+        - identifier: Archives
+          name: 📁Archives
+          url: /archives
+          weight: 10
+        - identifier: Home
+          name: 🏠主页
+          url: /
+          weight: 10
+        - identifier: Serach
+          name: 🔍搜索
+          url: serach
+          weight: 10
+        - identifier: tags
+          name: 🏷️分类
+          url: tags/
+          weight: 20
+    
 
 outputs:
   home:
@@ -29,12 +72,13 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Theme PaperMod
+  description: this is a blog
+  author: tomato
   # author: ["Me", "You"] # multiple authors
 
   defaultTheme: auto
   # disableThemeToggle: true
+  DateFormat: "2006-01-02"
   ShowShareButtons: true
   ShowReadingTime: true
   # disableSpecial1stPost: true
@@ -65,26 +109,12 @@ params:
     text: "Home"
     icon: /images/apple-touch-icon.png
     iconHeight: 35
-
-  # profile-mode
-  profileMode:
-    enabled: true # needs to be explicitly set
-    title: Tomato's Blog
-    subtitle: "你好"
-    imageUrl: images/tomato.jpg
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: potato
-    buttons:
-      - name: 技术
-        url: tech
-      - name: 生活
-        url: 404
-
+      
   # home-info mode
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
   #   Content: Welcome to my blog
+  
 
   socialIcons:
     - name: x
@@ -92,7 +122,7 @@ params:
     - name: stackoverflow
       url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/wanglezz"
     - name: email
       url: "mailto:fangchengjie@outlook.com"
 
@@ -117,25 +147,6 @@ params:
   # for search
   # https://fusejs.io/api/options.html
 
-menu:
-  main:
-    - identifier: Archives
-      name: 📁Archives
-      url: archives
-      weight: 9
-    - identifier: Home
-      name: 🏠主页
-      url: /
-      weight: 10
-    - identifier: Serach
-      name: 🔍搜索
-      url: serach
-      weight: 10
-    - identifier: tags
-      name: 🏷️分类
-      url: tags/
-      weight: 20
-
 fuseOpts:
     isCaseSensitive: false
     shouldSort: true
@@ -150,9 +161,11 @@ fuseOpts:
 pygmentsUseClasses: true
 markup:
   highlight:
+    codeFences: true
+    guessSyntax: true
     noClasses: false
     # anchorLineNos: true
     # codeFences: true
     # guessSyntax: true
     # lineNos: true
-    # style: monokai
+    style: darcula

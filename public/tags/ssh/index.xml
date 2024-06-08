@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tags/ssh/</link>
     <description>Recent content in Ssh on Tomato&#39;s Blog</description>
     <generator>Hugo -- 0.126.3</generator>
-    <language>zh-cn</language>
+    <language>zh</language>
     <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -13,10 +13,7 @@
       <link>http://localhost:1313/tech/ssh/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tech/ssh/</guid>
-      <description>ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。
-ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。
-私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥
-密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 </description>
+      <description>ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称</description>
     </item>
   </channel>
 </rss>

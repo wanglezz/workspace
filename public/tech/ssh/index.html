@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>SSH | Tomato&#39;s Blog</title>
 <meta name="keywords" content="ssh, 技术">
-<meta name="description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。
-ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。
-私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥
-密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 ">
+<meta name="description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称">
 <meta name="author" content="tomato">
 <link rel="canonical" href="http://localhost:1313/tech/ssh/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.c09d3130c4ce1e0950d3f3b451517b44609e2caeba2890ba10e3e52d5f281d0a.css" integrity="sha256-wJ0xMMTOHglQ0/O0UVF7RGCeLK66KJC6EOPlLV8oHQo=" rel="preload stylesheet" as="style">
@@ -21,7 +18,7 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
 <link rel="mask-icon" href="http://localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tech/ssh/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/tech/ssh/">
 <noscript>
     <style>
         #theme-toggle,
@@ -63,10 +60,7 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
   
 
 <meta property="og:title" content="SSH" />
-<meta property="og:description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。
-ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。
-私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥
-密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 " />
+<meta property="og:description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/tech/ssh/" /><meta property="article:section" content="tech" />
 <meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
@@ -74,10 +68,7 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SSH"/>
-<meta name="twitter:description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。
-ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。
-私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥
-密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 "/>
+<meta name="twitter:description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称"/>
 
 
 <script type="application/ld+json">
@@ -88,7 +79,7 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Teches",
+      "name": "💻技术",
       "item": "http://localhost:1313/tech/"
     }, 
     {
@@ -106,13 +97,13 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
   "@type": "BlogPosting",
   "headline": "SSH",
   "name": "SSH",
-  "description": "ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。\nssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。\n私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥\n密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 ",
+  "description": "ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称",
   "keywords": [
     "ssh", "技术"
   ],
   "articleBody": "ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。\nssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥由生成的一方保管。公钥可以发送给任何请求通信的其他人。\n私钥 签名：私钥用于对数据签名，证明数据的来源和完整性。 解密：某些情况下，私钥也用于解密公钥加密的数据。 公钥 验证签名：用于验证私钥生成的签名。 加密：某些情况下，公钥也可用于加密数据，只有相应的私钥可以解密。 ssh代理 主要用于管理ssh私钥\n密钥管理 代理可以储存多个私钥，用户不需要每次使用时手动输入密码和路径。 自动认证 用户尝试连接远程服务器时，ssh代理会自动提供相应私钥进行认证。 安全性 私钥存储在ssh代理中减少了私钥暴露的风险。 ",
-  "wordCount" : "20",
-  "inLanguage": "en",
+  "wordCount" : "333",
+  "inLanguage": "zh",
   "datePublished": "2024-06-05T00:00:00Z",
   "dateModified": "2024-06-05T00:00:00Z",
   "author":{
@@ -178,13 +169,13 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives" title="📁Archives">
-                    <span>📁Archives</span>
+                <a href="http://localhost:1313/" title="🏠主页">
+                    <span>🏠主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/" title="🏠主页">
-                    <span>🏠主页</span>
+                <a href="http://localhost:1313/archives" title="📁Archives">
+                    <span>📁Archives</span>
                 </a>
             </li>
             <li>
@@ -204,17 +195,17 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tech/">Teches</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tech/">💻技术</a></div>
     <h1 class="post-title entry-hint-parent">
       SSH
     </h1>
-    <div class="post-meta"><span title='2024-06-05 00:00:00 +0000 UTC'>June 5, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;20 words&nbsp;·&nbsp;tomato
+    <div class="post-meta"><span title='2024-06-05 00:00:00 +0000 UTC'>2024-06-05</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;333 字&nbsp;·&nbsp;tomato
 
 </div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -433,12 +424,12 @@ ssh原理 非对称加密 非对称加密使用一对关联的SSH密钥。私钥
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '复制';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '已复制！';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '复制';
             }, 2000);
         }
 
