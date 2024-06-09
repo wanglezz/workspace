@@ -97,6 +97,7 @@ params:
   # images: ["images/papermod-cover.png"]
 
   assets:
+    disableHLJS: false
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
     favicon: "images/favicon.ico"
@@ -164,8 +165,9 @@ markup:
     codeFences: true
     guessSyntax: true
     noClasses: false
+    style: monokai
     # anchorLineNos: true
     # codeFences: true
     # guessSyntax: true
     # lineNos: true
-    style: darcula
+    

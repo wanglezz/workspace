@@ -10,7 +10,7 @@
 <meta name="description" content="ssh是什么 SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。 ssh原理 非对称">
 <meta name="author" content="tomato">
 <link rel="canonical" href="http://localhost:1313/tech/ssh/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c09d3130c4ce1e0950d3f3b451517b44609e2caeba2890ba10e3e52d5f281d0a.css" integrity="sha256-wJ0xMMTOHglQ0/O0UVF7RGCeLK66KJC6EOPlLV8oHQo=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.13226478575ecde8ea30acd8bb5ad02f0a874b58a68f7175a94d49892eb2a40a.css" integrity="sha256-EyJkeFdezejqMKzYu1rQLwqHS1imj3F1qU1JiS6ypAo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/favicon-32x32.png">
@@ -202,29 +202,89 @@
     <div class="post-meta"><span title='2024-06-05 00:00:00 +0000 UTC'>2024-06-05</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;333 字&nbsp;·&nbsp;tomato
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#ssh%e6%98%af%e4%bb%80%e4%b9%88" aria-label="ssh是什么">ssh是什么</a></li>
-                <li>
-                    <a href="#ssh%e5%8e%9f%e7%90%86" aria-label="ssh原理">ssh原理</a><ul>
-                        
-                <li>
-                    <a href="#%e9%9d%9e%e5%af%b9%e7%a7%b0%e5%8a%a0%e5%af%86" aria-label="非对称加密">非对称加密</a></li></ul>
-                </li>
-                <li>
-                    <a href="#ssh%e4%bb%a3%e7%90%86" aria-label="ssh代理">ssh代理</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#ssh%e6%98%af%e4%bb%80%e4%b9%88" aria-label="ssh是什么">ssh是什么</a></li>
+                    <li>
+                        <a href="#ssh%e5%8e%9f%e7%90%86" aria-label="ssh原理">ssh原理</a><ul>
+                            
+                    <li>
+                        <a href="#%e9%9d%9e%e5%af%b9%e7%a7%b0%e5%8a%a0%e5%af%86" aria-label="非对称加密">非对称加密</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#ssh%e4%bb%a3%e7%90%86" aria-label="ssh代理">ssh代理</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
 
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
   <div class="post-content"><h2 id="ssh是什么">ssh是什么<a hidden class="anchor" aria-hidden="true" href="#ssh是什么">#</a></h2>
 <p>SSH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。</p>
 <h2 id="ssh原理">ssh原理<a hidden class="anchor" aria-hidden="true" href="#ssh原理">#</a></h2>
