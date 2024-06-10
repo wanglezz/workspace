@@ -22,54 +22,30 @@ minify:
 permalinks: #浏览器链接显示方式
   post: "/:slug/"
 
-
-defaultContentLanguage: zh # 最顶部首先展示的语言页面
-# defaultContentLanguageInSubdir: true
-
-languages:
-  zh:
-    languageName: "Chinese"
-    weight: 1
-    params:
-      profileMode:
-        enabled: true # needs to be explicitly set
-        title: Tomato's Blog
-        subtitle: "欢迎光临"
-        imageUrl: images/tomato.jpg
-        imageWidth: 120
-        imageHeight: 120
-        imageTitle: potato
-        buttons:
-          - name: 技术
-            url: tech
-          - name: 运动
-            url: running
-      
-      menu:
-        main:
-          - identifier: Archives
-            name: 📁Archives
-            url: /archives
-            weight: 10
-          - identifier: Home
-            name: 🏠主页
-            url: /
-            weight: 10
-          - identifier: Serach
-            name: 🔍搜索
-            url: serach
-            weight: 10
-          - identifier: tags
-            name: 🏷️分类
-            url: tags/
-            weight: 20
-    
-
 outputs:
   home:
     - HTML
     - RSS
     - JSON # necessary for search
+
+menu:
+    main:
+      - identifier: Archives
+        name: 📁Archives
+        url: /archives
+        weight: 10
+      - identifier: Home
+        name: 🏠主页
+        url: /
+        weight: 10
+      - identifier: Serach
+        name: 🔍搜索
+        url: serach
+        weight: 10
+      - identifier: tags
+        name: 🏷️分类
+        url: tags/
+        weight: 20
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -96,6 +72,22 @@ params:
   ShowLastMod: true #显示文章更新时间
   # comments: false
   # images: ["images/papermod-cover.png"]
+
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: Tomato's Blog
+    subtitle: "欢迎光临"
+    imageUrl: images/tomato.jpg
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: potato
+    buttons:
+      - name: 技术
+        url: tech
+      - name: 运动
+        url: running
+  
+  
 
   assets:
     disableHLJS: false
