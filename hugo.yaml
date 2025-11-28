@@ -1,8 +1,10 @@
 baseURL: "https://workspace-hazel.vercel.app/"
 title: Tomato's Blog
 languageCode: zh-cn
-paginate: 5
 theme: PaperMod
+
+pagination:
+  pagerSize: 5
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -29,23 +31,23 @@ outputs:
     - JSON # necessary for search
 
 menu:
-    main:
-      - identifier: Archives
-        name: 📁Archives
-        url: /archives
-        weight: 10
-      - identifier: Home
-        name: 🏠主页
-        url: /
-        weight: 10
-      - identifier: Serach
-        name: 🔍搜索
-        url: serach
-        weight: 10
-      - identifier: tags
-        name: 🏷️分类
-        url: tags/
-        weight: 20
+  main:
+    - identifier: Archives
+      name: 📁Archives
+      url: /archives
+      weight: 10
+    - identifier: Home
+      name: 🏠主页
+      url: /
+      weight: 10
+    - identifier: Search
+      name: 🔍搜索
+      url: /search  
+      weight: 10
+    - identifier: tags
+      name: 🏷️分类
+      url: tags/
+      weight: 20
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -87,8 +89,6 @@ params:
       - name: 运动
         url: running
   
-  
-
   assets:
     disableHLJS: false
     # disableHLJS: true # to disable highlight.js
@@ -108,7 +108,6 @@ params:
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
   #   Content: Welcome to my blog
-  
 
   socialIcons:
     - name: x
@@ -120,28 +119,14 @@ params:
     - name: email
       url: "mailto:fangchengjie@outlook.com"
 
-  # analytics:
-  #   google:
-  #     SiteVerificationTag: "XYZabc"
-  #   bing:
-  #     SiteVerificationTag: "XYZabc"
-  #   yandex:
-  #     SiteVerificationTag: "XYZabc"
-
   cover:
     hidden: false # hide everywhere but not in structured data
     hiddenInList: false # hide on list pages and home
     hiddenInSingle: false # hide on single page
 
-  # editPost:
-  #   URL: "https://github.com/<path_to_repo>/content"
-  #   Text: "Suggest Changes" # edit text
-  #   appendFilePath: true # to append file path to Edit link
-
   # for search
   # https://fusejs.io/api/options.html
-
-fuseOpts:
+  fuseOpts:
     isCaseSensitive: false
     shouldSort: true
     location: 0
@@ -152,15 +137,12 @@ fuseOpts:
     keys: ["title", "permalink", "summary", "content"]
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-pygmentsUseClasses: true
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     codeFences: true
     guessSyntax: true
     noClasses: false
     style: monokai
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    
