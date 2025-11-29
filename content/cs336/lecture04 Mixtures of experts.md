@@ -80,6 +80,34 @@ $$</div>
 {{< figure src="/images/Pasted image 20251128202811.png">}}
 下面这张图片很好的展示了增加专家细粒度对模型性能的影响{{< figure src="/images/Pasted image 20251128204434.png">}}一些消融实验{{< figure src="/images/Pasted image 20251128211638.png">}}展示了增加共享专家对性能没有提升而增加专家细粒度有明显提升。
 ## Training objectives
-**主要挑战**
+### 主要挑战
 - 需要稀疏性来提升训练效率。
 - 门控决策是离散的，不可微。
+### Solutions
+#### RL for MoEs
+使用基于强化学习的方法优化门控决策，实际优化效果并不显著。
+#### Stochastic perturbation(随机扰动)
+经典实现
+<div>$$
+H(x) = \text{TopK}(\underbrace{x \cdot W_g}_{\text{部分1: 原始分数}} + \underbrace{\text{StandardNormal}() \cdot \text{Softplus}(x \cdot W_{noise})}_{\text{部分2: 自适应噪声}})
+$$</div>
+通过在原始分数的基础上增加一个噪声，将离散的门控决策变成一个连续的概率分布问题。让每个专家都有可能进入Top-K训练，避免未选中的专家梯度断裂。
+#### Heuristic balancing losses
+为了避免所有tokens最后都集中到一两个专家，引入了一个辅助loss，强迫 Router 把tokens尽量平均地分配给所有的专家，不要让某几个专家累死，也不要让其他专家闲死。
+经典的 Switch Transformer 中的 Balancing Loss 公式大致如下：
+
+<div>$$
+Loss_{aux} = \alpha \cdot N \cdot \sum_{i=1}^{N} (f_i \cdot P_i)
+$$</div>
+- **$f_i$ (Fraction)**: 实际上有多少比例 Token 被分给了专家 $i$。
+- **$P_i$ (Probability)**: Router 给专家 $i$ 打出的平均 Softmax 概率（连续的置信度）。
+很明显，$f_i$和$P_i$是正相关的，可以将最小化loss简化为最小化平方和问题。
+假设有 2 个专家，总概率是 1.0。
+- **情况 A：极度偏科（赢者通吃）**
+    - 专家 1：0.9
+    - 专家 2：0.1
+    - 平方和 Loss $\approx 0.9^2 + 0.1^2 = 0.81 + 0.01 = \mathbf{0.82}$ （**很大**，惩罚重）
+- **情况 B：完全平均（理想状态）**
+    - 专家 1：0.5
+    - 专家 2：0.5
+    - 平方和 Loss $\approx 0.5^2 + 0.5^2 = 0.25 + 0.25 = \mathbf{0.50}$ （**最小**，惩罚轻）
