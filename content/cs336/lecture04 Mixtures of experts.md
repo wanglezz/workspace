@@ -7,6 +7,7 @@ author: tomato
 share: "true"
 date: 2025-11-28
 dir: cs336
+math: "true"
 ---
 # 什么是MoE
 MoE 架构就是在传统Dense Model 架构上，将单一 FFN 层替换成多个 FFN 层+门控，也就是分为多个专家加上选择器。{{< figure src="/images/Pasted image 20251128085651.png">}}这样的架构在保持单次FLOPS 不变的情况下增大了模型的总参数，被证明能大幅降低 loss 和提升训练速度。{{< figure src="/images/Pasted image 20251128091537.png">}}其中的 128e 代表 128 位 expert。可以看到随着专家的增加，模型的 loss 和 perplexity 显著优化。{{< figure src="/images/Pasted image 20251128091604.png">}}
