@@ -112,3 +112,65 @@ $$</div>
     - 专家 1：0.5
     - 专家 2：0.5
     - 平方和 Loss $\approx 0.5^2 + 0.5^2 = 0.25 + 0.25 = \mathbf{0.50}$ （**最小**，惩罚轻）
+而新的Deepseek-V3采用了一种 **"Auxiliary-Loss-Free"（无辅助损失）** 的策略。不对loss进行修改，而是在路由的打分公式上加入了一个偏置项，这种方法的优点在于不是通过惩罚专家，降低专家的学习能力来实现负载均衡，而是在路由分配时实现，就是说如果A专家负载太高了，就降低他的bias，使得任务自然的流入其他专家。
+## Issues of MoEs
+#### Z-loss stablity for router
+在 MoE 的 Router 中，我们通过点积计算分数：
+<div>$$
+s = \text{Softmax}(\mathbf{x} \cdot W_g)
+$$</div>
+其中 $\mathbf{x} \cdot W_g$ 是 Logits（未归一化的分数）。在训练中Logits有可能会非常大，导致浮点数溢出或softmax分布极度尖锐。
+为了抑制 Logits 变得太大，Z-loss 直接惩罚 Softmax 的配分函数（Partition Function, 即分母 Z）。
+公式如下：
+
+<div>$$
+L_z = \frac{1}{T} \sum_{i=1}^T \left( \log \left( \sum_{j=1}^N e^{x_{i,j}} \right) \right)^2
+$$</div>
+**其中：**
+- $T$：Batch 中的 Token 数量。
+- $N$：专家的数量。
+- $x_{i,j}$：第 $i$ 个 Token 对第 $j$ 个专家的原始 Logit。
+- $\sum e^{x}$：这就是 Softmax 的分母，通常被称为 $Z$。
+#### Fine-tuning
+MoEs容易产生过拟合，训练集和验证集差距非常大。
+**解决方法**
+- 用更大的数据集
+- 穿插使用MoE层和Dense层，只微调Dense层
+
+## Other training methods
+### Upcycling
+Upcycling 就是将一个已经训练好的“稠密模型”（Dense Model），通过复制参数和添加路由，直接改装成一个“稀疏模型”（MoE Model），然后进行少量继续训练的过程。{{< figure src="/images/Pasted image 20251129171810.png">}}
+1. 将训练好的FFN层复制N份
+2. 添加路由
+3. 差异化训练
+### MLA (Multi-Head Latent Attention)
+{{< figure src="/images/Pasted image 20251130105623.png">}}
+基本的思路
+- **向下投影 (Down-projection)：** 先把输入 $h_t$ 乘上一个矩阵 $W^{DKV}$，压缩成一个低维度的**潜在向量 (Latent Vector)**，记为 $c_t^{KV}$。
+- 公式：$c_t^{KV} = W^{DKV} h_t$ 
+- **向上投影 (Up-projection)：** 在需要用的时候，再把这个压缩的 $c_t^{KV}$ 乘上 $W^{UK}$ 和 $W^{UV}$ 还原成 $K$ 和 $V$。
+    - 公式：$k_t^C = W^{UK} c_t^{KV}$
+利用矩阵乘法的结合律 (Associative Property)：
+我们可以先算前面两项！
+令
+<div>$$
+Q_{absorbed} = q \cdot (W^{UK})^T
+$$</div>
+那么：
+
+<div>$$
+Score = Q_{absorbed} \cdot (c^{KV})^T
+$$</div>
+在推理时，我们可以把解压矩阵 $W^{UK}$直接吸收到 查询向量 $q$里面去。 这样，我们实际上是在拿处理过的 Query直接和 压缩的 KV Cache ($c^{KV}$) 做点积。
+但是RoPE会破坏这种合并：
+- 没有 RoPE 时：
+    $\langle h W^Q, W^{UK} c_t^{KV} \rangle = \langle h W^Q W^{UK}, c_t^{KV} \rangle$
+    (这里 $W^Q$ 和 $W^{UK}$ 可以直接乘在一起变成一个矩阵)
+- 有 RoPE 时： RoPE 是一种旋转操作，带有位置信息。如果把 RoPE 加在 $K$ 上，公式就变了：
+    $Score = q \cdot \text{RoPE}(k)^T$
+    因为 RoPE 是非线性的（或者说是位置相关的旋转矩阵），它卡在中间，导致无法简单地通过矩阵结合律把 $W^{UK}$ 移到 $q$ 那边去。
+Deepseek的解决方法：采用 Decoupled RoPE (解耦 RoPE) 策略。
+他们把 $q$ 和 $k$ 分成两部分：
+1. 一部分负责携带内容信息（使用 MLA 极致压缩，利用结合律合并，不加 RoPE）。
+2. 另一小部分专门负责携带位置信息（使用 RoPE，但不压缩）。
+    最后拼接在一起计算 Attention。
